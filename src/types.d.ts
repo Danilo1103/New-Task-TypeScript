@@ -1,4 +1,6 @@
 export interface OnTask {
     name: string,
-    done: boolean
+    done: boolean,
+    edit: boolean,
+    editText: string
 }

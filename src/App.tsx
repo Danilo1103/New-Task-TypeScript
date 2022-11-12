@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Form from './components/Form';
 import List from './components/List';
-import {OnTask} from './types'
+import { OnTask } from './types'
+import "./App.css"
 
 interface AppState {
   task: Array<OnTask>
 }
 
-function App() {
-
+export default function App() {
   const [task, setTask] = useState<AppState["task"]>([])
 
   const handleNewTask = (newTask: OnTask): void => {
-    setTask(task => [...task, newTask])
+    setTask(task => [newTask, ...task])
+  }
+
+  const handleEditTask = (resetTask: OnTask) => {
+    const copyTask = [...task]
+    console.log(copyTask)
+    setTask(task => [...task, resetTask])
   }
 
   return (
-    <div>
-      <Form onNewTask={handleNewTask} />
-      <List taskValues={task} onNewTasks={setTask}/>
-      {/* {
-        task.map((e: ITask, i: number) => (
-          <div key={i}>
-            <h2 style={{ textDecoration: e.done ? "line-through" : "" }}>{e.name}</h2>
-            <div>
-              <button onClick={() => toggleTask(i)}>{e.done ? "✗" : "✓"}</button>
-              {<button onClick={() => deleteTask(i)}>Eliminar</button>}
-            </div>
-          </div>
-        ))
-      } */}
+    <div className='app'>
+      <div className='form-prin'>
+        <h1>Tu app de notas</h1>
+        <h4>Algo para guardar?</h4>
+        <Form onNewTask={handleNewTask} />
+      </div>
+        <List taskValues={task}
+          onNewTasks={setTask}
+          resetTask={handleEditTask}
+        />
     </div>
   );
 }
-
-export default App;

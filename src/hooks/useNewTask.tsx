@@ -7,7 +7,9 @@ interface inputVal {
 
 const INITIAL_STATE = {
     name: "",
-    done: false
+    done: false,
+    edit: false,
+    editText: ""
 }
 
 type formReducerAction = {
@@ -29,12 +31,12 @@ const formReducer = (state: inputVal["inputValue"], action: formReducerAction) =
                 [inputName]: inputValue
             }
         case "clear_value":
-            return INITIAL_STATE
-    }
+            return INITIAL_STATE       
+}
 }
 
 const useNewForm = () => {
     return useReducer(formReducer, INITIAL_STATE)
 }
 
-export default useNewForm;
+export default useNewForm
