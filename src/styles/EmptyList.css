@@ -1,0 +1,29 @@
+.none-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(131, 131, 221);
+    width: 400px;
+    margin: auto;
+    height: 250px;
+    margin-top: 40px;
+    border-radius: 3px;
+}
+
+.icon{
+    width: 70px;
+    height: 80px;
+    margin: -20px 0 20px 0;
+}
+
+.none-container h4{
+    color: black;
+}
+
+.none-container p{
+    margin-top: 40px;
+    font-size: 13px;
+    text-decoration: underline;
+}
+

@@ -1,6 +1,8 @@
 import useNewForm from "../hooks/useNewTask"
 import { OnTask } from "../types"
 import "../styles/List.css"
+import { useEffect } from "react"
+import EmptyList from "./EmptyList"
 
 interface Props {
     taskValues: Array<OnTask>
@@ -56,7 +58,7 @@ export default function List({ taskValues, onNewTasks, resetTask }: Props) {
                 inputName: name,
                 inputValue: value
             }
-        })
+        })   
     }
 
     const toggleTask = (i: number) => {
@@ -64,6 +66,10 @@ export default function List({ taskValues, onNewTasks, resetTask }: Props) {
         newTasks[i].done = !newTasks[i].done
         onNewTasks(newTasks)
     }
+
+    useEffect(() => {
+        console.log(taskValues); 
+    },[taskValues])
 
     const deleteTask = (i: number) => {
         const deleteTasks: OnTask[] = [...taskValues]
@@ -87,7 +93,8 @@ export default function List({ taskValues, onNewTasks, resetTask }: Props) {
 
     return (
         <div>
-            {renderList()}
+            { taskValues.length > 0 ? renderList() :
+            <EmptyList/>}
         </div>
     )
 }
