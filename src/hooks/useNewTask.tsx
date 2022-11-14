@@ -8,8 +8,7 @@ interface inputVal {
 const INITIAL_STATE = {
     name: "",
     done: false,
-    edit: false,
-    editText: ""
+    edit: false
 }
 
 type formReducerAction = {

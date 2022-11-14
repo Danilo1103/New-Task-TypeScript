@@ -15,12 +15,6 @@ export default function App() {
     setTask(task => [newTask, ...task])
   }
 
-  const handleEditTask = (resetTask: OnTask) => {
-    const copyTask = [...task]
-    console.log(copyTask)
-    setTask(task => [...task, resetTask])
-  }
-
   return (
     <div className='app'>
       <div className='form-prin'>
@@ -28,10 +22,9 @@ export default function App() {
         <h4>Algo para guardar?</h4>
         <Form onNewTask={handleNewTask} />
       </div>
-        <List taskValues={task}
-          onNewTasks={setTask}
-          resetTask={handleEditTask}
-        />
+      <List taskValues={task}
+        onNewTasks={setTask}
+      />
     </div>
   );
 }
