@@ -44,7 +44,7 @@ const Form = ({ onNewTask }: FormProps) => {
         name='name'
         placeholder='Escribe aqui'
       />
-      {inputValues.name ? <button type='submit'>Save</button> : <button disabled >Save</button>}
+      {inputValues.name ? <button type='submit'>Save</button> : <button disabled >Guardar</button>}
       {inputValues.name ? <button type='button' onClick={handleClear}><BsFillTrashFill /></button> : <button disabled ><BsFillTrashFill /></button>}
 
     </form>
